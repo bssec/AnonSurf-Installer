@@ -47,7 +47,6 @@ echo Exec=anonsurf stop >> $f
 echo Icon=/opt/anonsurf/anonstop.png >> $f
 echo Terminal=false >> $f
 echo Type=Application >> $f
-echo "Categories=Utility;Application;" >> $f
 echo Name=AnonStop >> $f
 chmod +x $f
 
