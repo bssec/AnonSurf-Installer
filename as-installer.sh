@@ -1,4 +1,5 @@
 #!/bin/bash
+dir=$(xdg-user-dir DESKTOP)
 
 # Make sure only root can run this script
 if [ $(id -u) -ne 0 ]; then
@@ -6,8 +7,15 @@ if [ $(id -u) -ne 0 ]; then
 	exit 1
 fi
 
+# Remove previous installation
 rm -rf /opt/anonsurf
 mkdir /opt/anonsurf
+rm -f /usr/share/applications/as-start.desktop
+rm -f /usr/share/applications/as-stop.desktop
+rm -f $dir/as-start.desktop
+rm -f $dir/as-stop.desktop
+rm -f /usr/bin/anonsurf
+
 
 # Download anonsurf in /usr/bin
 wget --https-only https://raw.githubusercontent.com/EclipseSpark/anonsurf/master/anonsurf.sh -O /usr/bin/anonsurf
@@ -58,6 +66,5 @@ cp /opt/anonsurf/as-start.desktop /usr/share/applications
 cp /opt/anonsurf/as-stop.desktop /usr/share/applications
 
 # Put .desktop files on the Desktop
-dir=$(xdg-user-dir DESKTOP)
 cp /opt/anonsurf/as-start.desktop $dir
 cp /opt/anonsurf/as-stop.desktop $dir
