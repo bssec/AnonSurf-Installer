@@ -6,6 +6,7 @@ if [ $(id -u) -ne 0 ]; then
 	exit 1
 fi
 
+rm -rf /opt/anonsurf
 mkdir /opt/anonsurf
 
 # Download anonsurf in /usr/bin
@@ -14,6 +15,8 @@ chmod +x /usr/bin/anonsurf
 
 # Install tor
 apt-get -y -qq install tor
+apt-get install gksu
+
 
 # Configure tor
 f=/etc/tor/torrc
@@ -32,7 +35,7 @@ f=/opt/anonsurf/as-start.desktop
 echo [Desktop Entry] >> $f
 echo Version=1.6 >> $f
 echo Name=AnonStart >> $f
-echo Exec=anonsurf start >> $f
+echo Exec=gksu anonsurf start >> $f
 echo Icon=/opt/anonsurf/anonstart.png >> $f
 echo Terminal=false >> $f
 echo Type=Application >> $f
@@ -43,7 +46,7 @@ f=/opt/anonsurf/as-stop.desktop
 echo [Desktop Entry] >> $f
 echo Version=1.6 >> $f
 echo Name=AnonStop >> $f
-echo Exec=anonsurf stop >> $f
+echo Exec=gksu anonsurf stop >> $f
 echo Icon=/opt/anonsurf/anonstop.png >> $f
 echo Terminal=false >> $f
 echo Type=Application >> $f
