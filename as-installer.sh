@@ -23,7 +23,7 @@ chmod +x /usr/bin/anonsurf
 
 # Install tor
 apt-get -y -qq install tor
-apt-get install gksu
+apt-get -y -qq install gksu
 
 
 # Configure tor
