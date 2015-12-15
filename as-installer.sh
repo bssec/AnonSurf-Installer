@@ -24,6 +24,8 @@ chmod +x /usr/bin/anonsurf
 # Install tor
 apt-get -y -qq install tor
 apt-get -y -qq install gksu
+apt-get -y -qq install dnsmasq
+apt-get -y -qq install nscd
 
 
 # Configure tor
@@ -34,6 +36,10 @@ echo "TransPort 9040" >> $f
 echo "SocksPort 9050" >> $f
 echo "DNSPort 53" >> $f
 echo "RunAsDaemon 1" >> $f
+
+service tor start
+service dnsmasq start
+service nscd start
 
 # Create and make executable the shortcuts
 wget http://bssec.altervista.org/images/as/anonstart.png -O /opt/anonsurf/anonstart.png
@@ -60,6 +66,7 @@ echo Terminal=false >> $f
 echo Type=Application >> $f
 echo Name=AnonStop >> $f
 chmod +x $f
+
 
 # Put .desktop files in the applications directory
 cp /opt/anonsurf/as-start.desktop /usr/share/applications
