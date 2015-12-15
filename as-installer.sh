@@ -67,6 +67,7 @@ echo Type=Application >> $f
 echo Name=AnonStop >> $f
 chmod +x $f
 
+service tor restart
 
 # Put .desktop files in the applications directory
 cp /opt/anonsurf/as-start.desktop /usr/share/applications
