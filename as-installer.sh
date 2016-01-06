@@ -18,7 +18,7 @@ rm -f /usr/bin/anonsurf
 
 
 # Download anonsurf in /usr/bin
-wget --https-only https://raw.githubusercontent.com/EclipseSpark/anonsurf/master/anonsurf.sh -O /usr/bin/anonsurf
+wget --https-only https://raw.githubusercontent.com/ParrotSec/anonsurf/master/anonsurf.sh -O /usr/bin/anonsurf
 chmod +x /usr/bin/anonsurf
 
 # Install tor
